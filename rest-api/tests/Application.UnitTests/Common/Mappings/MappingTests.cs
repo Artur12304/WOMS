@@ -1,9 +1,11 @@
 ﻿using System.Runtime.Serialization;
 using AutoMapper;
 using NUnit.Framework;
+using RestApi.Application.Carts.Model;
+using RestApi.Application.Clients.Model;
 using RestApi.Application.Common.Mappings;
-using RestApi.Application.Common.Models;
-using RestApi.Application.TodoLists.Queries.GetTodos;
+using RestApi.Application.Orders.Model;
+using RestApi.Application.Products.Model;
 using RestApi.Domain.Entities;
 
 namespace RestApi.Application.UnitTests.Common.Mappings;
@@ -15,7 +17,7 @@ public class MappingTests
 
     public MappingTests()
     {
-        _configuration = new MapperConfiguration(config => 
+        _configuration = new MapperConfiguration(config =>
             config.AddProfile<MappingProfile>());
 
         _mapper = _configuration.CreateMapper();
@@ -28,10 +30,10 @@ public class MappingTests
     }
 
     [Test]
-    [TestCase(typeof(TodoList), typeof(TodoListDto))]
-    [TestCase(typeof(TodoItem), typeof(TodoItemDto))]
-    [TestCase(typeof(TodoList), typeof(LookupDto))]
-    [TestCase(typeof(TodoItem), typeof(LookupDto))]
+    [TestCase(typeof(Cart), typeof(CartDto))]
+    [TestCase(typeof(Order), typeof(OrderDto))]
+    [TestCase(typeof(Client), typeof(ClientDto))]
+    [TestCase(typeof(Product), typeof(ProductDto))]
     public void ShouldSupportMappingFromSourceToDestination(Type source, Type destination)
     {
         var instance = GetInstanceOf(source);

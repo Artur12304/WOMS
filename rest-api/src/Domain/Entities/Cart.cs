@@ -4,9 +4,9 @@ namespace RestApi.Domain.Entities;
 
 public class Cart : BaseAuditableEntity
 {
-    public Client Client { get; set; }
+    public int ClientId { get; set; }
 
-    public IEnumerable<Product> Products { get; set; }
+    public List<int>? ProductIds { get; set; }
 
     public decimal CartAmount { get; set; }
 }

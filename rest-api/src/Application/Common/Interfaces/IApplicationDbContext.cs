@@ -5,9 +5,13 @@ namespace RestApi.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
-    DbSet<TodoList> TodoLists { get; }
+    DbSet<Cart> Carts { get; }
 
-    DbSet<TodoItem> TodoItems { get; }
+    DbSet<Product> Products { get; }
+
+    DbSet<Client> Clients { get; }
+
+    DbSet<Order> Orders { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }
